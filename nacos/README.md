@@ -1,6 +1,6 @@
 # [NacosV2.2.2](https://nacos.io/zh-cn/docs/v2/quickstart/quick-start.html)
 
-参考官方文档准备环境，下载编译后的压缩包并解压到当前目录。
+参考官方文档准备环境，下载[编译后的压缩](https://github.com/alibaba/nacos/releases)包并解压到当前目录。
 
 ## 增加鉴权（非Docker环境）
 

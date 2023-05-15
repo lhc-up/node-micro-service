@@ -1,0 +1,11 @@
+nacos:
+  enabled: true
+  address: http://127.0.0.1:8848
+  usename: nacos
+  password: nacos
+  namespace: 0361a564-eb23-4d6c-adfc-b0aceb6ecadd
+  group: DEFAULT_GROUP
+  dataId:
+    # 需要获取的配置文件的dataId
+    application: koa-server.yml
+    gateway: gateway-server.yml

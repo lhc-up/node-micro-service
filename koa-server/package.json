@@ -1,15 +1,64 @@
 {
-    "name": "koa-server",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "MIT",
-    "dependencies": {
-        "koa": "^2.14.2"
-    }
+      "name": "koa-server",
+      "version": "1.0.0",
+      "description": "",
+      "main": "dist/main.js",
+      "scripts": {
+            "dev": "cross-env NODE_ENV=development rollup -w -c scripts/dev.js",
+            "build": "cross-env NODE_ENV=production node scripts/build.js",
+            "postbuild": "node scripts/postBuild.js",
+            "serve": "nodemon dist/main.js"
+      },
+      "keywords": [],
+      "author": "",
+      "license": "ISC",
+      "engines": {
+            "node": ">=16"
+      },
+      "dependencies": {
+            "ali-oss": "^6.17.1",
+            "amqplib": "^0.10.2",
+            "app-root-path": "^3.1.0",
+            "archiver": "^5.3.1",
+            "bytes": "^3.1.2",
+            "cheerio": "^1.0.0-rc.12",
+            "color": "^4.2.3",
+            "form-data": "^4.0.0",
+            "fs-extra": "^10.1.0",
+            "got": "^11.8.5",
+            "ip": "^1.1.8",
+            "js-yaml": "^4.1.0",
+            "koa": "^2.13.4",
+            "koa-body": "^5.0.0",
+            "koa-router": "^12.0.0",
+            "lodash": "^4.17.21",
+            "log4js": "^6.6.1",
+            "nacos": "^2.5.0",
+            "node-xlsx": "^0.21.0",
+            "passthrough-counter": "^1.0.0",
+            "tslib": "^2.4.0",
+            "uuid": "^8.3.2"
+      },
+      "devDependencies": {
+            "@babel/core": "^7.21.8",
+            "@babel/plugin-transform-runtime": "^7.18.10",
+            "@babel/preset-env": "^7.18.10",
+            "@rollup/plugin-babel": "^5.3.1",
+            "@rollup/plugin-commonjs": "^22.0.2",
+            "@rollup/plugin-node-resolve": "^13.3.0",
+            "@rollup/plugin-terser": "^0.4.1",
+            "@rollup/plugin-typescript": "^8.3.4",
+            "@types/amqplib": "^0.8.2",
+            "@types/bytes": "^3.1.1",
+            "@types/koa": "^2.13.5",
+            "@types/koa-router": "^7.4.4",
+            "@types/node": "^18.7.5",
+            "core-js": "^3.24.1",
+            "cross-env": "^7.0.3",
+            "nodemon": "^2.0.19",
+            "rollup": "^2.78.0",
+            "rollup-plugin-copy": "^3.4.0",
+            "rollup-plugin-progress": "^1.1.2",
+            "typescript": "^4.7.4"
+      }
 }
