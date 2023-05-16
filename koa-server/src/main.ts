@@ -6,11 +6,14 @@ import { accessLogger } from './middlewares/accessLogger';
 import { bodyParser } from './middlewares/bodyParser';
 import { exceptionHandler } from './middlewares/exceptionHandler';
 import { NacosUtil } from './utils/NacosUtil';
+import { RabbitMQUtil } from './utils/RabbitMQUtil';
 
 (async () => {
     try {
         Config.init();
         await NacosUtil.init();
+        await RabbitMQUtil.init();
+        
         const app = new Koa();
         // 接口异常
         app.use(exceptionHandler);

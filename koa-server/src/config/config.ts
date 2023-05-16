@@ -28,8 +28,8 @@ declare interface RabbitMqConfig {
     username: string;
     password: string;
     queue: {
-        task: string;
-        result: string;
+        queue1: string;
+        queue2: string;
     }
 }
 
