@@ -18,6 +18,7 @@ nacos:
     # 需要获取的配置文件的dataId
     application: koa-server.yml
     gateway: gateway-server.yml
+    redis: redis.yml
 
 rabbitMq:
   enabled: false
@@ -25,8 +26,8 @@ rabbitMq:
   username: admin
   password: admin123
   queue:
-    task: task_generate_queue
-    result: task_result_queue
+    queue1: xxxxxx;
+    queue2: ffffff;
 
 oss:
   enabled: false
@@ -35,3 +36,11 @@ oss:
   accessKeySecret: xxxooo,
   bucket: xx
   dir: oo
+
+redis:
+  enabled: false
+  host: 127.0.0.1:6379
+  port: 6379
+  username: 
+  password: 
+  database: 1

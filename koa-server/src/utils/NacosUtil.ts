@@ -2,6 +2,7 @@ import { NacosNamingClient, NacosConfigClient } from 'nacos';
 import path from 'path';
 import { Config } from '../config/config';
 import { Logger } from './LogUtil';
+const { merge } = require('lodash');
 const appRoot = require('app-root-path');
 const pkgJson = require(path.join(appRoot.path, 'package.json'));
 const ip = require('ip');
@@ -45,14 +46,20 @@ export class NacosUtil {
             return;
         }
 
+        const cfg = {};
+
         // 应用配置
         const appConfig = await this.getSingleConfig(dataId.application);
-        console.log(appConfig)
+        merge(cfg, appConfig);
+
+        // redis配置
+        const redisConfig = await this.getSingleConfig(dataId.redis);
+        merge(cfg, redisConfig);
 
         // RabbitMQ配置
         // const rabbitMQConfig = await this.getSingleConfig(dataId.rabbitmq);
 
-        Config.flush(appConfig);
+        Config.flush(cfg);
 
         Logger.info('Nacos配置已加载完成');
     }

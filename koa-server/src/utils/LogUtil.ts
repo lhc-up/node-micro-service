@@ -95,21 +95,15 @@ function print(fn: Function, msg: any, ...args: any) {
         fn(msg, ...args);
     }
 }
-
-const isDev = process.env.NODE_ENV === 'development';
 export class Logger {
 
     // 一般等级的信息，输出至同一个文件夹，根据日期滚动
     public static trace(msg: any, ...args: any) {
-        if (isDev) {
-            print(logger.trace.bind(logger), msg, ...args);
-        }
+        print(logger.trace.bind(logger), msg, ...args);
     }
 
     public static debug(msg: any, ...args: any) {
-        if (isDev) {
-            print(logger.debug.bind(logger), msg, ...args);
-        }
+        print(logger.debug.bind(logger), msg, ...args);
     }
 
     public static info(msg: any, ...args: any) {

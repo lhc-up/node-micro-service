@@ -15,6 +15,7 @@ declare interface NacosConfig {
     dataId: {
         application: string;
         gateway: string;
+        redis: string;
     }
 }
 
@@ -42,6 +43,15 @@ declare interface OssConfig {
     dir: string;
 }
 
+declare interface RedisConfig {
+    enabled: boolean;
+    host: string;
+    port: number;
+    username: string;
+    password: string;
+    database: number;
+}
+
 declare interface GatewayConfig {
     domain: string;
     port: number;
@@ -54,6 +64,7 @@ export class Config {
     public static rabbitMq: RabbitMqConfig;
     public static nacos: NacosConfig;
     public static gateway: GatewayConfig;
+    public static redis: RedisConfig;
 
     // 所有配置，用于输出配置信息
     public static all: Object;
@@ -70,6 +81,7 @@ export class Config {
     
     public static init(cfg?: Object | string) {
         const config = {};
+
         const baseConfig = this.loadConfig();
         merge(config, baseConfig);
 
@@ -95,6 +107,11 @@ export class Config {
         this.nacos = config.nacos || {};
         // @ts-ignore
         this.gateway = config.gateway || {};
+        // @ts-ignore
+        this.redis = config.redis || {};
+
+        // @ts-ignore
+        console.log('config.redis', config.redis)
         
         this.all = config;
     }

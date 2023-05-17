@@ -7,12 +7,14 @@ import { bodyParser } from './middlewares/bodyParser';
 import { exceptionHandler } from './middlewares/exceptionHandler';
 import { NacosUtil } from './utils/NacosUtil';
 import { RabbitMQUtil } from './utils/RabbitMQUtil';
+import { RedisUtil } from './utils/RedisUtil';
 
 (async () => {
     try {
         Config.init();
         await NacosUtil.init();
         await RabbitMQUtil.init();
+        await RedisUtil.init();
         
         const app = new Koa();
         // 接口异常
